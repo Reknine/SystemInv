@@ -54,10 +54,10 @@ print("Physical cores:", psutil.cpu_count(logical=False))
 print("Total cores:", psutil.cpu_count(logical=True))
 
 # CPU frequencies
-# cpufreq = psutil.cpu_freq()
-# print(f"Max Frequency: {cpufreq.max:.2f}Mhz")
-# print(f"Min Frequency: {cpufreq.min:.2f}Mhz")
-# print(f"Current Frequency: {cpufreq.current:.2f}Mhz")
+cpufreq = psutil.cpu_freq()
+print(f"Max Frequency: {cpufreq.max:.2f}Mhz")
+print(f"Min Frequency: {cpufreq.min:.2f}Mhz")
+print(f"Current Frequency: {cpufreq.current:.2f}Mhz")
 
 # CPU usage
 print("CPU Usage Per Core:")
@@ -106,9 +106,9 @@ for partition in partitions:
     print(f"  Percentage: {partition_usage.percent}%")
 
 # get IO statistics since boot
-# disk_io = psutil.disk_io_counters()
-# print(f"Total read: {get_size(disk_io.read_bytes)}")
-# print(f"Total write: {get_size(disk_io.write_bytes)}")
+disk_io = psutil.disk_io_counters()
+print(f"Total read: {get_size(disk_io.read_bytes)}")
+print(f"Total write: {get_size(disk_io.write_bytes)}")
 
 # Network information
 print("="*40, "Network Information", "="*40)
@@ -134,23 +134,23 @@ print(f"Total Bytes Sent: {get_size(net_io.bytes_sent)}")
 print(f"Total Bytes Received: {get_size(net_io.bytes_recv)}")
 
 # ROUTE information
-# print("="*40, "ROUTE information", "="*40)
-# routes = subprocess.check_output(['route', 'print'], stderr=subprocess.STDOUT)
-# routes = routes.decode("utf-8")
-# print(routes)
+print("="*40, "ROUTE information", "="*40)
+routes = subprocess.check_output(['route', 'print'], stderr=subprocess.STDOUT)
+routes = routes.decode("utf-8")
+print(routes)
 
 # JAVA information
-# print("="*40, "JAVA information", "="*40)
-# java_version = subprocess.check_output(
-#     ['java', '-version'], stderr=subprocess.STDOUT)
-# java_version = java_version.decode("utf-8")
-# print(java_version)
+print("="*40, "JAVA information", "="*40)
+java_version = subprocess.check_output(
+    ['java', '-version'], stderr=subprocess.STDOUT)
+java_version = java_version.decode("utf-8")
+print(java_version)
 
 # .Net Versions
-# print("="*40, ".NET Versions installed", "="*40)
-# versions = os.listdir('c:/windows/microsoft.net/Framework')
-# print("\n".join(versions))
+print("="*40, ".NET Versions installed", "="*40)
+versions = os.listdir('c:/windows/microsoft.net/Framework')
+print("\n".join(versions))
 
-# print("="*40, "INVENTORY DONE", "="*40)
+print("="*40, "INVENTORY DONE", "="*40)
 
-# sys.stdout.close()
+sys.stdout.close()
