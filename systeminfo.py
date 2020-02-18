@@ -7,10 +7,10 @@ import subprocess
 from os import path
 
 # check if folder exist
-if not path.exists('c:/temp/cgi_sysinfo'):
-    os.makedirs('c:/temp/cgi_sysinfo')
+if not path.exists('c:/temp/sysinfo'):
+    os.makedirs('c:/temp/sysinfo')
 
-sys.stdout = open('c:/temp/cgi_sysinfo/sysinfo.txt', 'w')
+sys.stdout = open('c:/temp/sysinfo/sysinfo.txt', 'w')
 
 # Function that converts large number of bytes into a scaled format (e.g in kilo, mega, giga, etc.):
 
